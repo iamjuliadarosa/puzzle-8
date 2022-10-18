@@ -13,7 +13,7 @@ namespace puzzle_8_horizontal {
 			Puzzle puzzle = visitar.First();
 			visitar.RemoveFirst();
 			if(puzzle.getResultadoPuzzle().Equals(this.estadoDesejado)) {
-				//Main.caminho.Add(puzzle);
+				Form_Puzzle_8.caminho.Add(puzzle);
 			} else {
 				resolve(puzzle);
 			}
@@ -25,12 +25,12 @@ namespace puzzle_8_horizontal {
 			foreach(int[] operacoes in Operacoes.getInstance()[posicaoLivre[0]][posicaoLivre[1]]) {
 				Puzzle novoPuzzle = new Puzzle(resultadoPuzzle,operacoes[2],operacoes[0],operacoes[1]);
 				string novoResultado = novoPuzzle.getResultadoPuzzle();
-				//Main.nodosGerados++;
-				//Main.nodosVisitados++;
+				Form_Puzzle_8.nodosGerados++;
+				Form_Puzzle_8.nodosVisitados++;
 				if(!isVisitado(novoResultado)) {
 					novoPuzzle.setPai(puzzle);
 					if(novoResultado.Equals(estadoDesejado)) {
-						//Main.caminho.Add(novoPuzzle);
+						Form_Puzzle_8.caminho.Add(novoPuzzle);
 						return true;
 					} else {
 						visitados.Add(novoResultado);

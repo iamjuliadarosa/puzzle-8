@@ -18,8 +18,8 @@ namespace puzzle_8_horizontal {
 			if(puzzle.getFilho() == null) {
 				puzzle.setFilho(getFilhoHeuristicaPuzzle(puzzle));
 			}
-			//Main.caminho.add(puzzle.getFilho());
-			//Main.nodosVisitados++;
+			Form_Puzzle_8.caminho.Add(puzzle.getFilho());
+            Form_Puzzle_8.nodosVisitados++;
 			return puzzle.getAcao() + "\n" + resolve(puzzle.getFilho());
 		}
 		private Puzzle getFilhoHeuristicaPuzzle(Puzzle puzzle) {
@@ -56,7 +56,7 @@ namespace puzzle_8_horizontal {
 			foreach(int[] operacoes in Operacoes.getInstance()[posicaoLivre[0]][posicaoLivre[1]]) {
 				Puzzle novoPuzzle = new Puzzle(puzzle.getResultadoPuzzle(),operacoes[2],operacoes[0],operacoes[1]);
 				novoPuzzle.setPai(puzzle);
-				//Main.nodosGerados++;
+                Form_Puzzle_8.nodosGerados++;
 				int heuristica = getHeuristica(novoPuzzle);
 				if(novoPuzzle.getPai().getPai() != null) {
 					if(novoPuzzle.getResultadoPuzzle().Equals(novoPuzzle.getPai().getPai().getResultadoPuzzle())) {

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ES1 = new System.Windows.Forms.TextBox();
             this.ES2 = new System.Windows.Forms.TextBox();
             this.EF1 = new System.Windows.Forms.TextBox();
@@ -39,7 +38,6 @@
             this.ES5 = new System.Windows.Forms.TextBox();
             this.ES4 = new System.Windows.Forms.TextBox();
             this.ES3 = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.EF5 = new System.Windows.Forms.TextBox();
             this.EF4 = new System.Windows.Forms.TextBox();
             this.EF3 = new System.Windows.Forms.TextBox();
@@ -56,6 +54,10 @@
             this.PainelOutput = new System.Windows.Forms.Panel();
             this.CampoRelatorioResultante = new System.Windows.Forms.RichTextBox();
             this.PainelInput = new System.Windows.Forms.Panel();
+            this.BtnLimpar = new System.Windows.Forms.Button();
+            this.Btn_Prox = new System.Windows.Forms.Button();
+            this.Btn_Ante = new System.Windows.Forms.Button();
+            this.Btn_Shuffle = new System.Windows.Forms.Button();
             this.PainelOutput.SuspendLayout();
             this.PainelInput.SuspendLayout();
             this.SuspendLayout();
@@ -140,11 +142,6 @@
             this.ES3.Name = "ES3";
             this.ES3.Size = new System.Drawing.Size(25, 20);
             this.ES3.TabIndex = 12;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // EF5
             // 
@@ -274,9 +271,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PainelOutput.Controls.Add(this.CampoRelatorioResultante);
-            this.PainelOutput.Location = new System.Drawing.Point(162, 12);
+            this.PainelOutput.Location = new System.Drawing.Point(219, 12);
             this.PainelOutput.Name = "PainelOutput";
-            this.PainelOutput.Size = new System.Drawing.Size(626, 426);
+            this.PainelOutput.Size = new System.Drawing.Size(569, 426);
             this.PainelOutput.TabIndex = 24;
             // 
             // CampoRelatorioResultante
@@ -286,7 +283,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CampoRelatorioResultante.Location = new System.Drawing.Point(3, 3);
             this.CampoRelatorioResultante.Name = "CampoRelatorioResultante";
-            this.CampoRelatorioResultante.Size = new System.Drawing.Size(620, 420);
+            this.CampoRelatorioResultante.Size = new System.Drawing.Size(563, 420);
             this.CampoRelatorioResultante.TabIndex = 0;
             this.CampoRelatorioResultante.Text = "Aguardando dados...";
             // 
@@ -294,6 +291,10 @@
             // 
             this.PainelInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.PainelInput.Controls.Add(this.Btn_Shuffle);
+            this.PainelInput.Controls.Add(this.Btn_Ante);
+            this.PainelInput.Controls.Add(this.Btn_Prox);
+            this.PainelInput.Controls.Add(this.BtnLimpar);
             this.PainelInput.Controls.Add(this.label2);
             this.PainelInput.Controls.Add(this.label1);
             this.PainelInput.Controls.Add(this.BuscaAEstrela);
@@ -319,8 +320,48 @@
             this.PainelInput.Controls.Add(this.ES1);
             this.PainelInput.Location = new System.Drawing.Point(12, 12);
             this.PainelInput.Name = "PainelInput";
-            this.PainelInput.Size = new System.Drawing.Size(144, 426);
+            this.PainelInput.Size = new System.Drawing.Size(201, 426);
             this.PainelInput.TabIndex = 25;
+            // 
+            // BtnLimpar
+            // 
+            this.BtnLimpar.Location = new System.Drawing.Point(117, 175);
+            this.BtnLimpar.Name = "BtnLimpar";
+            this.BtnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimpar.TabIndex = 24;
+            this.BtnLimpar.Text = "Limpar";
+            this.BtnLimpar.UseVisualStyleBackColor = true;
+            this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
+            // 
+            // Btn_Prox
+            // 
+            this.Btn_Prox.Enabled = false;
+            this.Btn_Prox.Location = new System.Drawing.Point(23, 256);
+            this.Btn_Prox.Name = "Btn_Prox";
+            this.Btn_Prox.Size = new System.Drawing.Size(40, 23);
+            this.Btn_Prox.TabIndex = 25;
+            this.Btn_Prox.Text = "Próx.";
+            this.Btn_Prox.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Ante
+            // 
+            this.Btn_Ante.Enabled = false;
+            this.Btn_Ante.Location = new System.Drawing.Point(69, 256);
+            this.Btn_Ante.Name = "Btn_Ante";
+            this.Btn_Ante.Size = new System.Drawing.Size(40, 23);
+            this.Btn_Ante.TabIndex = 26;
+            this.Btn_Ante.Text = "Ante.";
+            this.Btn_Ante.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Shuffle
+            // 
+            this.Btn_Shuffle.Location = new System.Drawing.Point(117, 201);
+            this.Btn_Shuffle.Name = "Btn_Shuffle";
+            this.Btn_Shuffle.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Shuffle.TabIndex = 27;
+            this.Btn_Shuffle.Text = "Aleátorio";
+            this.Btn_Shuffle.UseVisualStyleBackColor = true;
+            this.Btn_Shuffle.Click += new System.EventHandler(this.Btn_Shuffle_Click);
             // 
             // Form_Puzzle_8
             // 
@@ -351,7 +392,6 @@
         private System.Windows.Forms.TextBox ES5;
         private System.Windows.Forms.TextBox ES4;
         private System.Windows.Forms.TextBox ES3;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox EF5;
         private System.Windows.Forms.TextBox EF4;
         private System.Windows.Forms.TextBox EF3;
@@ -368,6 +408,10 @@
         private System.Windows.Forms.Panel PainelOutput;
         private System.Windows.Forms.Panel PainelInput;
         private System.Windows.Forms.RichTextBox CampoRelatorioResultante;
+        private System.Windows.Forms.Button BtnLimpar;
+        private System.Windows.Forms.Button Btn_Prox;
+        private System.Windows.Forms.Button Btn_Ante;
+        private System.Windows.Forms.Button Btn_Shuffle;
     }
 }
 

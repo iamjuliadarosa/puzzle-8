@@ -67,7 +67,7 @@ namespace puzzle_8_horizontal {
             string[] Array = resultado.ToArray();
 
             if(Array != null) {
-               return string.Join(";", Array);
+                return string.Join(";",Array);
             }
 
 
