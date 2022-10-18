@@ -1,0 +1,11 @@
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle-8-horizontal.csproj.AssemblyReference.cache
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle-8-horizontal.csproj.SuggestedBindingRedirects.cache
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle_8_horizontal.Form_Puzzle_8.resources
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle_8_horizontal.Properties.Resources.resources
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle-8-horizontal.csproj.GenerateResource.cache
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle-8-horizontal.csproj.CoreCompileInputs.cache
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\bin\Debug\puzzle-8-horizontal.exe.config
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\bin\Debug\puzzle-8-horizontal.exe
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\bin\Debug\puzzle-8-horizontal.pdb
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle-8-horizontal.exe
+C:\Users\Batman\Downloads\puzzle-8-horizontal-master\puzzle-8-horizontal-master\puzzle-8-horizontal\puzzle-8-horizontal\obj\Debug\puzzle-8-horizontal.pdb
