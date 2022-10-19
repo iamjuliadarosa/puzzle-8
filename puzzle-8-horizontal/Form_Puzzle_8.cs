@@ -24,60 +24,94 @@ namespace puzzle_8_horizontal {
         public static int nodosVisitados = 0;
         public static int nodosGerados = 0;
         private void Btn_Resolver_Click(object sender,EventArgs e) {
+            bool valido = true;
             string EstadoFinal = string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8}",EF1.Text,EF2.Text,EF3.Text,EF4.Text,EF5.Text,EF6.Text,EF7.Text,EF8.Text,EF9.Text);
-            string EstadoInicial = string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8}",ES1.Text,ES2.Text,ES3.Text,ES4.Text,ES5.Text,ES6.Text,ES7.Text,ES8.Text,ES9.Text);
-            string relatorio = null;//string.Format("Puzzle inicial: {0}\nPuzzle Final: {1}",EstadoInicial,EstadoFinal);
-            Puzzle puzzle = new Puzzle(EstadoInicial);
-            if(BuscaHorizontal.Checked) {
-                try {
-                    relatorio += "\nTipo de Busca: Busca Horizontal";
-                    PuzzleHorizontal ph = new PuzzleHorizontal(puzzle,EstadoFinal);
-                    DateTime tempoInicial = DateTime.Now;
-                    ph.resolvePuzzle();
-                    DateTime tempoFinal = DateTime.Now;
-                    TimeSpan TempoDecorrido = tempoFinal.Subtract(tempoInicial);
-                    relatorio += "\nBusca Horizontal:\nNodos Gerados: " + nodosGerados + " \nNodos Visitados: " + nodosVisitados + " \nTempo de execução: " + TempoDecorrido.TotalMilliseconds + "ms\n";
-                    relatorio += "\nCaminho da resolução:";
-                    Puzzle nodoFinal = caminho.Last();
-                    List<Puzzle> queue = new List<Puzzle>();
-                    do {
-                        queue.Add(nodoFinal);
-                        nodoFinal = nodoFinal.getPai();
-                    } while(nodoFinal != null);
-                    queue.Reverse();
-                    foreach(Puzzle passo in queue) {
-                        relatorio += "\n" + passo.getAcao();
-                    }
-                    PassoCaminhoExibicao = queue.First();
-                    LoadPassoCaminho();
-                } catch(Exception err) {
-                    MessageBox.Show(err.Message);
-                }
-            } else if(BuscaAEstrela.Checked) {
-                try {
-                    relatorio += "\nTipo de Busca: Busca A*";
-                    PuzzleA pa = new PuzzleA(puzzle,EstadoFinal);
-                    DateTime tempoInicial = DateTime.Now;
-                    pa.resolvePuzzle();
-                    DateTime tempoFinal = DateTime.Now;
-                    TimeSpan TempoDecorrido = tempoFinal.Subtract(tempoInicial);
-                    relatorio += "\nHeurísitca A*:\nNodos Gerados:" + nodosGerados + " \nNodos Visitados: " + nodosVisitados + " \nTempo de execução: " + TempoDecorrido.TotalMilliseconds + "ms\n";
-                    relatorio += "\nCaminho da resolução:";
-                    foreach(Puzzle passo in caminho) {
-                        relatorio += "\n" + passo.getAcao();
-                    }
-                    PassoCaminhoExibicao = caminho.First();
-                    LoadPassoCaminho();
-                } catch(Exception err) {
-                    MessageBox.Show(err.Message);
-                }
-            } else {
-                MessageBox.Show("Selecione um tipo de busca!");
+            string[] PuzzleValidateFinal = EstadoFinal.Split(';');
+            if(PuzzleValidateFinal.Contains("")) {
+                MessageBox.Show("Puzzle Final inválido!");
+                valido = false;
             }
-            caminho.Clear();
-            nodosGerados = 0;
-            nodosVisitados = 0;
-            CampoRelatorioResultante.Text = relatorio;
+            try {
+                int[] PuzzleFinal = new int[] { int.Parse(EF1.Text),int.Parse(EF2.Text),int.Parse(EF3.Text),int.Parse(EF4.Text),int.Parse(EF5.Text),int.Parse(EF6.Text),int.Parse(EF7.Text),int.Parse(EF8.Text),int.Parse(EF9.Text) };
+                if(PuzzleFinal.Sum() != 36 || (PuzzleFinal.Length - PuzzleFinal.Distinct().Count() != 0)) {
+                    MessageBox.Show("Puzzle Final inválido!");
+                    valido = false;
+                }
+            } catch {
+                MessageBox.Show("Puzzle Final inválido!");
+                valido = false;
+            }
+            string EstadoInicial = string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8}",ES1.Text,ES2.Text,ES3.Text,ES4.Text,ES5.Text,ES6.Text,ES7.Text,ES8.Text,ES9.Text);
+            string[] PuzzleValidateInicial = EstadoInicial.Split(';');
+            if(PuzzleValidateInicial.Contains("")) {
+                MessageBox.Show("Puzzle Inicial inválido!");
+                valido = false;
+            }
+            try {
+                int[] PuzzleInicial = new int[] { int.Parse(ES1.Text),int.Parse(ES2.Text),int.Parse(ES3.Text),int.Parse(ES4.Text),int.Parse(ES5.Text),int.Parse(ES6.Text),int.Parse(ES7.Text),int.Parse(ES8.Text),int.Parse(ES9.Text) };
+                if(PuzzleInicial.Sum() != 36 || (PuzzleInicial.Length - PuzzleInicial.Distinct().Count() != 0)) {
+                    MessageBox.Show("Puzzle Inicial inválido!");
+                    valido = false;
+                }
+            } catch {
+                MessageBox.Show("Puzzle Inicial inválido!");
+                valido = false;
+            }            
+
+            string relatorio = null;//string.Format("Puzzle inicial: {0}\nPuzzle Final: {1}",EstadoInicial,EstadoFinal);
+            if(valido) {
+                Puzzle puzzle = new Puzzle(EstadoInicial);
+                if(BuscaHorizontal.Checked) {
+                    try {
+                        relatorio += "\nTipo de Busca: Busca Horizontal";
+                        PuzzleHorizontal ph = new PuzzleHorizontal(puzzle,EstadoFinal);
+                        DateTime tempoInicial = DateTime.Now;
+                        ph.resolvePuzzle();
+                        DateTime tempoFinal = DateTime.Now;
+                        TimeSpan TempoDecorrido = tempoFinal.Subtract(tempoInicial);
+                        relatorio += "\nBusca Horizontal:\nNodos Gerados: " + nodosGerados + " \nNodos Visitados: " + nodosVisitados + " \nTempo de execução: " + TempoDecorrido.TotalMilliseconds + "ms\n";
+                        relatorio += "\nCaminho da resolução:";
+                        Puzzle nodoFinal = caminho.Last();
+                        List<Puzzle> queue = new List<Puzzle>();
+                        do {
+                            queue.Add(nodoFinal);
+                            nodoFinal = nodoFinal.getPai();
+                        } while(nodoFinal != null);
+                        queue.Reverse();
+                        foreach(Puzzle passo in queue) {
+                            relatorio += "\n" + passo.getAcao();
+                        }
+                        PassoCaminhoExibicao = queue.First();
+                        LoadPassoCaminho();
+                    } catch(Exception err) {
+                        MessageBox.Show(err.Message);
+                    }
+                } else if(BuscaAEstrela.Checked) {
+                    try {
+                        relatorio += "\nTipo de Busca: Busca A*";
+                        PuzzleA pa = new PuzzleA(puzzle,EstadoFinal);
+                        DateTime tempoInicial = DateTime.Now;
+                        pa.resolvePuzzle();
+                        DateTime tempoFinal = DateTime.Now;
+                        TimeSpan TempoDecorrido = tempoFinal.Subtract(tempoInicial);
+                        relatorio += "\nHeurísitca A*:\nNodos Gerados:" + nodosGerados + " \nNodos Visitados: " + nodosVisitados + " \nTempo de execução: " + TempoDecorrido.TotalMilliseconds + "ms\n";
+                        relatorio += "\nCaminho da resolução:";
+                        foreach(Puzzle passo in caminho) {
+                            relatorio += "\n" + passo.getAcao();
+                        }
+                        PassoCaminhoExibicao = caminho.First();
+                        LoadPassoCaminho();
+                    } catch(Exception err) {
+                        MessageBox.Show(err.Message);
+                    }
+                } else {
+                    MessageBox.Show("Selecione um tipo de busca!");
+                }
+                caminho.Clear();
+                nodosGerados = 0;
+                nodosVisitados = 0;
+                CampoRelatorioResultante.Text = relatorio;
+            }
         }
 
         private void LoadPassoCaminho() {

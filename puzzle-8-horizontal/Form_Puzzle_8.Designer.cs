@@ -286,7 +286,7 @@
             this.CampoRelatorioResultante.Name = "CampoRelatorioResultante";
             this.CampoRelatorioResultante.Size = new System.Drawing.Size(563, 420);
             this.CampoRelatorioResultante.TabIndex = 0;
-            this.CampoRelatorioResultante.Text = "Aguardando dados...";
+            this.CampoRelatorioResultante.Text = "Aguardando resolução do puzzle.";
             // 
             // PainelInput
             // 
