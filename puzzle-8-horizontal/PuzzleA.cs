@@ -9,7 +9,8 @@ namespace puzzle_8_horizontal {
 		private string estadoDesejado = "1;2;3;4;5;6;7;8;0";
 		private Puzzle puzzleEstadoDesejado = null;
 		public string resolvePuzzle() {
-			return resolve(this.puzzle);
+            Form_Puzzle_8.caminho.Add(puzzle);
+            return resolve(this.puzzle);
 		}
 		private string resolve(Puzzle puzzle) {
 			if(puzzle.getResultadoPuzzle().Equals(estadoDesejado)) {

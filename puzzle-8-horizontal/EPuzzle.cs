@@ -12,7 +12,7 @@ namespace puzzle_8_horizontal {
 		public const int MOVE_DIR = 3;
 
 		public static readonly string[] operacoes = {
-		"_cima", "_baixo", "_esquerda", "_direita"
+		" para cima", " para baixo", " para esquerda", " para direita"
 	};
 
 		public static readonly string[] linhas = {

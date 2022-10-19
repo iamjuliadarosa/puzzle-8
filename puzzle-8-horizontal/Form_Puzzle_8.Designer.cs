@@ -54,10 +54,11 @@
             this.PainelOutput = new System.Windows.Forms.Panel();
             this.CampoRelatorioResultante = new System.Windows.Forms.RichTextBox();
             this.PainelInput = new System.Windows.Forms.Panel();
-            this.BtnLimpar = new System.Windows.Forms.Button();
-            this.Btn_Prox = new System.Windows.Forms.Button();
-            this.Btn_Ante = new System.Windows.Forms.Button();
             this.Btn_Shuffle = new System.Windows.Forms.Button();
+            this.Btn_Ante = new System.Windows.Forms.Button();
+            this.Btn_Prox = new System.Windows.Forms.Button();
+            this.BtnLimpar = new System.Windows.Forms.Button();
+            this.LabelEstado = new System.Windows.Forms.Label();
             this.PainelOutput.SuspendLayout();
             this.PainelInput.SuspendLayout();
             this.SuspendLayout();
@@ -220,7 +221,7 @@
             this.Btn_Resolver.Location = new System.Drawing.Point(23, 350);
             this.Btn_Resolver.Name = "Btn_Resolver";
             this.Btn_Resolver.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Resolver.TabIndex = 21;
+            this.Btn_Resolver.TabIndex = 26;
             this.Btn_Resolver.Text = "Resolver";
             this.Btn_Resolver.UseVisualStyleBackColor = true;
             this.Btn_Resolver.Click += new System.EventHandler(this.Btn_Resolver_Click);
@@ -231,7 +232,7 @@
             this.BuscaHorizontal.Location = new System.Drawing.Point(23, 304);
             this.BuscaHorizontal.Name = "BuscaHorizontal";
             this.BuscaHorizontal.Size = new System.Drawing.Size(105, 17);
-            this.BuscaHorizontal.TabIndex = 19;
+            this.BuscaHorizontal.TabIndex = 24;
             this.BuscaHorizontal.TabStop = true;
             this.BuscaHorizontal.Text = "Busca Horizontal";
             this.BuscaHorizontal.UseVisualStyleBackColor = true;
@@ -242,7 +243,7 @@
             this.BuscaAEstrela.Location = new System.Drawing.Point(23, 327);
             this.BuscaAEstrela.Name = "BuscaAEstrela";
             this.BuscaAEstrela.Size = new System.Drawing.Size(36, 17);
-            this.BuscaAEstrela.TabIndex = 20;
+            this.BuscaAEstrela.TabIndex = 25;
             this.BuscaAEstrela.TabStop = true;
             this.BuscaAEstrela.Text = "A*";
             this.BuscaAEstrela.UseVisualStyleBackColor = true;
@@ -291,6 +292,7 @@
             // 
             this.PainelInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.PainelInput.Controls.Add(this.LabelEstado);
             this.PainelInput.Controls.Add(this.Btn_Shuffle);
             this.PainelInput.Controls.Add(this.Btn_Ante);
             this.PainelInput.Controls.Add(this.Btn_Prox);
@@ -323,45 +325,56 @@
             this.PainelInput.Size = new System.Drawing.Size(201, 426);
             this.PainelInput.TabIndex = 25;
             // 
-            // BtnLimpar
-            // 
-            this.BtnLimpar.Location = new System.Drawing.Point(117, 175);
-            this.BtnLimpar.Name = "BtnLimpar";
-            this.BtnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.BtnLimpar.TabIndex = 24;
-            this.BtnLimpar.Text = "Limpar";
-            this.BtnLimpar.UseVisualStyleBackColor = true;
-            this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
-            // 
-            // Btn_Prox
-            // 
-            this.Btn_Prox.Enabled = false;
-            this.Btn_Prox.Location = new System.Drawing.Point(23, 256);
-            this.Btn_Prox.Name = "Btn_Prox";
-            this.Btn_Prox.Size = new System.Drawing.Size(40, 23);
-            this.Btn_Prox.TabIndex = 25;
-            this.Btn_Prox.Text = "Próx.";
-            this.Btn_Prox.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Ante
-            // 
-            this.Btn_Ante.Enabled = false;
-            this.Btn_Ante.Location = new System.Drawing.Point(69, 256);
-            this.Btn_Ante.Name = "Btn_Ante";
-            this.Btn_Ante.Size = new System.Drawing.Size(40, 23);
-            this.Btn_Ante.TabIndex = 26;
-            this.Btn_Ante.Text = "Ante.";
-            this.Btn_Ante.UseVisualStyleBackColor = true;
-            // 
             // Btn_Shuffle
             // 
             this.Btn_Shuffle.Location = new System.Drawing.Point(117, 201);
             this.Btn_Shuffle.Name = "Btn_Shuffle";
             this.Btn_Shuffle.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Shuffle.TabIndex = 27;
+            this.Btn_Shuffle.TabIndex = 20;
             this.Btn_Shuffle.Text = "Aleátorio";
             this.Btn_Shuffle.UseVisualStyleBackColor = true;
             this.Btn_Shuffle.Click += new System.EventHandler(this.Btn_Shuffle_Click);
+            // 
+            // Btn_Ante
+            // 
+            this.Btn_Ante.Enabled = false;
+            this.Btn_Ante.Location = new System.Drawing.Point(24, 256);
+            this.Btn_Ante.Name = "Btn_Ante";
+            this.Btn_Ante.Size = new System.Drawing.Size(40, 23);
+            this.Btn_Ante.TabIndex = 21;
+            this.Btn_Ante.Text = "Ante.";
+            this.Btn_Ante.UseVisualStyleBackColor = true;
+            this.Btn_Ante.Click += new System.EventHandler(this.Btn_Ante_Click);
+            // 
+            // Btn_Prox
+            // 
+            this.Btn_Prox.Enabled = false;
+            this.Btn_Prox.Location = new System.Drawing.Point(71, 256);
+            this.Btn_Prox.Name = "Btn_Prox";
+            this.Btn_Prox.Size = new System.Drawing.Size(40, 23);
+            this.Btn_Prox.TabIndex = 22;
+            this.Btn_Prox.Text = "Próx.";
+            this.Btn_Prox.UseVisualStyleBackColor = true;
+            this.Btn_Prox.Click += new System.EventHandler(this.Btn_Prox_Click);
+            // 
+            // BtnLimpar
+            // 
+            this.BtnLimpar.Location = new System.Drawing.Point(117, 175);
+            this.BtnLimpar.Name = "BtnLimpar";
+            this.BtnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimpar.TabIndex = 19;
+            this.BtnLimpar.Text = "Limpar";
+            this.BtnLimpar.UseVisualStyleBackColor = true;
+            this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
+            // 
+            // LabelEstado
+            // 
+            this.LabelEstado.AutoSize = true;
+            this.LabelEstado.Location = new System.Drawing.Point(117, 261);
+            this.LabelEstado.Name = "LabelEstado";
+            this.LabelEstado.Size = new System.Drawing.Size(70, 13);
+            this.LabelEstado.TabIndex = 27;
+            this.LabelEstado.Text = "Estado Inicial";
             // 
             // Form_Puzzle_8
             // 
@@ -412,6 +425,7 @@
         private System.Windows.Forms.Button Btn_Prox;
         private System.Windows.Forms.Button Btn_Ante;
         private System.Windows.Forms.Button Btn_Shuffle;
+        private System.Windows.Forms.Label LabelEstado;
     }
 }
 

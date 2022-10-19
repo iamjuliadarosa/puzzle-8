@@ -7,11 +7,10 @@ namespace puzzle_8_horizontal {
 	public class PuzzleHorizontal {
 
 		private List<string> visitados = new List<string>();
-		private LinkedList<Puzzle> visitar = new LinkedList<Puzzle>();
-		private string estadoDesejado = "123456780";
+		private Queue<Puzzle> visitar = new Queue<Puzzle>();
+		private string estadoDesejado = "1;2;3;4;5;6;7;8;0";
 		public void resolvePuzzle() {
-			Puzzle puzzle = visitar.First();
-			visitar.RemoveFirst();
+			Puzzle puzzle = visitar.Dequeue();
 			if(puzzle.getResultadoPuzzle().Equals(this.estadoDesejado)) {
 				Form_Puzzle_8.caminho.Add(puzzle);
 			} else {
@@ -29,28 +28,28 @@ namespace puzzle_8_horizontal {
 				Form_Puzzle_8.nodosVisitados++;
 				if(!isVisitado(novoResultado)) {
 					novoPuzzle.setPai(puzzle);
-					if(novoResultado.Equals(estadoDesejado)) {
+                    puzzle.setFilho(novoPuzzle);
+                    if(novoResultado.Equals(estadoDesejado)) {
 						Form_Puzzle_8.caminho.Add(novoPuzzle);
 						return true;
 					} else {
 						visitados.Add(novoResultado);
-						visitar.AddLast(novoPuzzle);
+						visitar.Enqueue(novoPuzzle);
 					}
 				}
 				
 			}
-			Puzzle Item = visitar.First();
-			visitar.RemoveFirst();
+			Puzzle Item = visitar.Dequeue();
             return resolve(Item);
 		}
 		public bool isVisitado(string resultadoPuzzle) {
 			return visitados.Contains(resultadoPuzzle);
 		}
 		public PuzzleHorizontal(Puzzle puzzleInicial) {
-			visitar.AddLast(puzzleInicial);
+			visitar.Enqueue(puzzleInicial);
 		}
 		public PuzzleHorizontal(Puzzle puzzleInicial,string estadoDesejado) {
-			visitar.AddLast(puzzleInicial);
+			visitar.Enqueue(puzzleInicial);
 			this.estadoDesejado = estadoDesejado;
 		}
 	}
